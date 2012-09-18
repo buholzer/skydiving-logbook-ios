@@ -1,0 +1,186 @@
+/* 
+   Localizable.strings
+   skydiveapp-4-iphone
+
+   Created by Tom Cain on 2/23/10.
+   Copyright 2010 NA. All rights reserved.
+ */
+
+// Common Strings
+"YesButton" = "Yes";
+"NoButton" = "No";
+"BackButton" = "Back";
+"DeleteButton" = "Delete";
+"NextButton" = "Next";
+"OKButton" = "OK";
+"ClearButton" = "Clear";
+"CancelButton" = "Cancel";
+"DrawingClearInstructions" = "Triple-tap to clear";
+"FreefallTimeFormat" = "%.2dh %.2dm %.2ds";
+
+// Loading Data Strings
+"Loading" = "Loading...";
+"StartingMigration" = "Migrating database";
+"MigratingJumps" = "Migrating Jumps: %@";
+"DoNotExit" = "(do not exit)";
+
+// Notes Strings
+"Notes" = "Notes";
+
+// Due Notification Strings
+"DueNowNotification" = "%@ due today!";
+"DueSoonNotification" = "%@ due soon!";
+
+// Log Entry Strings
+"LogEntryInfoTitle" = "Jump %@";
+"JumpProfile" = "Jump Profile";
+"Images" = "Images";
+"Signature" = "Signature";
+"LocationPlaceHolder" = "Location";
+"EstimateButton" = "Estimate";
+"MoreButton" = "More";
+"SignButton" = "Sign";
+"CopyLastButton" = "Copy Last";
+"LoadMore" = "Load More...";
+"LogEntryDeleteConfirmation" = "Are you sure you want to delete this entry?";
+"LogEntryPhotoDeleteConfirmation" = "Are you sure you want to delete this photo?";
+"LogEntryDiagramDeleteConfirmation" = "Are you sure you want to delete this diagram?";
+"LogEntryDeleteYesAdjustButton" = "Yes (Adjust Jump #'s)";
+
+// Image Strings
+"DiagramTitle" = "Diagram";
+"ImageTitle" = "Image";
+
+// Signature Strings
+"SelectJumpsTitle" = "Select Jumps";
+"SignTitle" = "Sign";
+
+// Aircraft Strings
+"AircraftInfoTitle" = "Aircraft Info";
+"NewAircraftTitle" = "New Aircraft";
+"AircraftDeleteConfirmation" = "Are you sure you want to delete this aircraft?";
+"SelectAircraftTitle" = "Select Aircraft";
+
+// Location Strings
+"LocationInfoTitle" = "Drop Zone Info";
+"NewLocationTitle" = "New Drop Zone";
+"LocationDeleteConfirmation" = "Are you sure you want to delete this drop zone?";
+"SelectLocationTitle" = "Select Drop Zone";
+
+// Jump Type Strings
+"SkydiveTypeInfoTitle" = "Jump Type Info";
+"NewSkydiveTypeTitle" = "New Jump Type";
+"SkydiveTypeDeleteConfirmation" = "Are you sure you want to delete this jump type?";
+"SelectSkydiveTypeTitle" = "Select Jump Type";
+
+// Gear Strings
+"ActiveRigsHeader" = "Current";
+"ArchivedRigsHeader" = "Archived";
+"RigInfoTitle" = "Rig Info";
+"NewRigTitle" = "New Rig";
+"RigComponents" = "Components";
+"RigReminders" = "Service Reminders";
+"RigDeleteConfirmation" = "Are you sure you want to delete this rig?";
+"SelectGearTitle" = "Select Gear";
+
+// Rig Component Strings
+"RigComponentTitle" = "Component";
+"RigComponentDeleteConfirmation" = "Are you sure you want to delete this component?";
+
+// Rig Reminder Strings
+"RigReminderTitle" = "Service Reminder";
+"RigReminderDeleteConfirmation" = "Are you sure you want to delete this reminder?";
+
+// Summary Strings
+"TotalJumpCountTitle" = "Total Jumps";
+"PerLocation" = "Per Drop Zone";
+"PerAircraft" = "Per Aircraft";
+"PerRig" = "Per Rig";
+"PerSkydiveType" = "Per Jump Type";
+
+// Wingload Calculator Strings
+"WingLoadingCalculatorType" = "Wing Loading";
+"CanopySizeCalculatorType" = "Canopy Size";
+"ExtraWeightCalculatorType" = "Extra Weight";
+// Note: lbs/sq-ft and sq-ft should not be changed below
+// This information is always represented with these units internationally
+"WingLoadingResultFormat" = "%0.2f lbs/sq-ft";
+"CanopySizeResultFormat" = "%0.0f sq-ft";
+"ExtraWeightResultFormat" = "%0.0f %@";
+
+// Import/Export Strings
+"ExportDataTitle" = "Exporting data";
+"ImportDataTitle" = "Importing data";
+"DownloadImagesTitle" = "Downloading images";
+"DownloadFileTitle" = "Downloading";
+"UploadFileTitle" = "Uploading";
+"ProgressFormat" = "%@ complete";
+"ExportSuccessMessage" = "Export successful";
+"ImportSuccessMessage" = "Import successful";
+"ExportErrorMessage" = "An error occurred during export";
+"ImportErrorMessage" = "An error occurred during import";
+"ImportIncorrectXMLVersionMessage" = "Incompatible XML versions, expecting version 2.";
+"ExportEmailMessage" = "The attached skydiving_logbook.xml file contains all of your application data, including logbook history, logbook info (with diagrams and signatures), DZ, aircraft, and rig info.
+
+You may use the following site to generate a printable PDF file from the skydiving_logbook.xml file: http://sites.google.com/site/skydivinglogbook/print-logbook.
+
+The attached skydiving_logbook.csv file contains all of your logbook information in tabular form, and can be opened with your preferred spreadsheet program. This file does not contain signatures, diagrams, DZ, aircraft, or rig info.";
+
+"JumpNumberHeader" = "Jump #";
+"DateHeader" = "Date";
+"LocationHeader" = "Drop Zone";
+"AircraftHeader" = "Aircraft";
+"GearHeader" = "Gear";
+"SkydiveTypeHeader" = "Jump Type";
+"ExitAltitudeHeader" = "Exit Alt";
+"DeploymentAltitudeHeader" = "Depl Alt";
+"AltitudeUnitHeader" = "Altitude Unit";
+"FreefallTimeHeader" = "Delay (s)";
+"CutawayHeader" = "Cutaway";
+"NotesHeader" = "Notes";
+
+// URL Dialog Strings
+"URLDialogTitle" = "Enter URL for import files";
+"URLDialogMessage" = "Ex: http://www.mysite.com/myfiles\n\n\n";
+
+// Settings Strings
+"LogbookHistory" = "Logbook History";
+"UnitOfMeasure" = "Unit of Measure";
+"LogbookSettings" = "Logbook Settings";
+"SettingsHourButton" = "hr";
+"SettingsMinuteButton" = "min";
+"SettingsSecondButton" = "sec";
+
+// Freefall Profile Strings
+"SelectFreefallProfileTitle" = "Select Profile";
+"Horizontal" = "Horizontal";
+"Vertical" = "Vertical";
+"Tracking" = "Tracking";
+"Wingsuit" = "Wingsuit";
+"Skysurfing" = "Skysurfing";
+
+// UOM Strings
+"US" = "US";
+"Metric" = "Metric";
+
+// Weight Unit Strings
+"Pounds" = "lbs";
+"Kilograms" = "kg";
+
+// Time Interval Unit Strings
+"Seconds" = "seconds";
+"Days" = "Days";
+"Months" = "Months";
+"Years" = "Years";
+
+// Altitude Unit Strings
+"Feet" = "ft";
+"Meters" = "m";
+
+// Distance Unit Strings
+"Miles" = "mi";
+"Kilometers" = "km";
+
+// Boolean Strings
+"Yes" = "Yes";
+"No" = "No";
