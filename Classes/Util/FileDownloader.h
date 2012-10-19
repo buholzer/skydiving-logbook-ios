@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @protocol FileDownloaderDelegate<NSObject>
-- (void)fileDownloadComplete:(NSString *)fileName;
+- (void)fileDownloadComplete:(NSString *)fileName data:(NSData *)data;
 - (void)addFileDownloadProgress:(float)progress fileName:(NSString *)fileName;
 - (void)fileDowloadFailed;
 @end

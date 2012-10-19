@@ -60,6 +60,6 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {	
 	// download complete
-    [delegate fileDownloadComplete:fileName];
+    [delegate fileDownloadComplete:fileName data:downloadData];
 }
 @end

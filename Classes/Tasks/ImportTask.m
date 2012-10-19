@@ -16,7 +16,7 @@
 @interface ImportTask(Private)
 - (void)downloadFile:(NSString *)source;
 - (void)runDatabaseImport;
-- (void)handleImageDownloaded:(NSString *)fileName;
+- (void)handleImageDownloaded:(NSString *)fileName data:(NSData *)imageData;
 - (void)importComplete;
 - (void)showSuccess;
 - (void)showError;
@@ -82,7 +82,7 @@
     }
 }
 
-- (void)runDatabaseImport
+- (void)runDatabaseImport:(NSData *)xmlFileData
 {
     BOOL success = NO;
     @autoreleasepool
@@ -91,12 +91,7 @@
         progressHud.progress = 0;
         progressHud.labelText = NSLocalizedString(@"ImportDataTitle", @"");
         progressHud.detailsLabelText = [UIUtility formatProgress:progressHud.progress];
-        
-        // get Xml file data
-        NSString *downloadDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-        NSString *filePath = [downloadDir stringByAppendingPathComponent:XmlFileName];
-        NSData *xmlFileData = [NSData dataWithContentsOfFile:filePath];
-	
+        	
         // run db importer
         success = [dbImporter beginImport:xmlFileData];
     }
@@ -135,16 +130,11 @@
     }
 }
 
-- (void)handleImageDownloaded:(NSString *)fileName
+- (void)handleImageDownloaded:(NSString *)fileName data:(NSData *)imageData;
 {
     // increment file count
     downloadedImageFileCount++;
-    
-    // load image data
-    NSString *downloadDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    NSString *filePath = [downloadDir stringByAppendingPathComponent:fileName];
-    NSData *fileData = [NSData dataWithContentsOfFile:filePath];
-    
+        
     // process image import info
     BOOL allImagesReady = YES;
     for (ImageImportInfo *importInfo in imagesImportInfo)
@@ -152,7 +142,7 @@
         // update corresponding image import info
         if ([importInfo.imageFileName isEqualToString:fileName])
         {
-            importInfo.image = [UIImage imageWithData:fileData];
+            importInfo.image = [UIImage imageWithData:imageData];
         }
         
         // check if images ready
@@ -266,17 +256,17 @@
 
 #pragma mark -
 #pragma mark FileDownloaderDelegate
-- (void)fileDownloadComplete:(NSString *)fileName
+- (void)fileDownloadComplete:(NSString *)fileName data:(NSData *)data;
 {
     if ([fileName isEqualToString:XmlFileName])
     {
         // if XML file, start import
-        [self performSelectorInBackground:@selector(runDatabaseImport) withObject:nil];
+        [self performSelectorInBackground:@selector(runDatabaseImport) withObject:data];
     }
     else
     {
         // must be an image file, process it
-        [self handleImageDownloaded:fileName];
+        [self handleImageDownloaded:fileName data:data];
     }
 }
 
@@ -317,15 +307,20 @@
     // get file name
     NSString *fileName = [destPath lastPathComponent];
     
+    // get file data
+    NSString *downloadDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *filePath = [downloadDir stringByAppendingPathComponent:XmlFileName];
+    NSData *fileData = [NSData dataWithContentsOfFile:filePath];
+    
     if ([fileName isEqualToString:XmlFileName])
     {
         // if XML file, start import
-        [self performSelectorInBackground:@selector(runDatabaseImport) withObject:nil];
+        [self performSelectorInBackground:@selector(runDatabaseImport:) withObject:fileData];
     }
     else
     {
         // must be an image file, process it
-        [self handleImageDownloaded:fileName];
+        [self handleImageDownloaded:fileName data:fileData];
     }
 }
 
