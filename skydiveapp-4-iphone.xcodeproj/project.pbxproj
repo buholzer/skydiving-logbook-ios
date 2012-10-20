@@ -11,7 +11,6 @@
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		B000FFCB124DB1C900506000 /* StartupTask.m in Sources */ = {isa = PBXBuildFile; fileRef = B000FFCA124DB1C900506000 /* StartupTask.m */; };
 		B00B543211F3485200EB72D6 /* SummaryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0A2D7B41147210900200701 /* SummaryViewController.xib */; };
-		B00B543411F3486C00EB72D6 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0A2D79A1147210900200701 /* MainWindow.xib */; };
 		B00B543511F3491C00EB72D6 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0A2D7B11147210900200701 /* SettingsViewController.xib */; };
 		B00B543A11F34A2100EB72D6 /* AircraftListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0A2D7E11147212000200701 /* AircraftListViewController.xib */; };
 		B00B543B11F34A3300EB72D6 /* AircraftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0A2D7E41147212000200701 /* AircraftViewController.xib */; };
@@ -132,6 +131,8 @@
 		B0FE7E731161697D00300910 /* Calculator.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FE7E721161697D00300910 /* Calculator.m */; };
 		E211D9F31512323700C01E64 /* FileDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = E211D9F21512323700C01E64 /* FileDownloader.m */; };
 		E21E19F114DD84D900F24C75 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = E21E19F014DD84D900F24C75 /* Default-Portrait~ipad.png */; };
+		E2208E361632066F0018019C /* MainWindow-iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2208E351632066F0018019C /* MainWindow-iPhone.xib */; };
+		E2208E3C163263DA0018019C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2208E3B163263DA0018019C /* Default-568h@2x.png */; };
 		E224453E150275F70053FD0C /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E224453D150275F70053FD0C /* DropboxSDK.framework */; };
 		E22CF3F515161E3A00531B63 /* ImageImportInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E22CF3F415161E3A00531B63 /* ImageImportInfo.m */; };
 		E242D6B8142ED7890021EFB6 /* NSData_MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = E242D6B7142ED7890021EFB6 /* NSData_MD5.m */; };
@@ -328,7 +329,6 @@
 		B0A2D7971147210900200701 /* LogbookListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogbookListViewController.h; sourceTree = "<group>"; };
 		B0A2D7981147210900200701 /* LogbookListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogbookListViewController.m; sourceTree = "<group>"; };
 		B0A2D7991147210900200701 /* LogbookListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogbookListViewController.xib; sourceTree = "<group>"; };
-		B0A2D79A1147210900200701 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		B0A2D79B1147210900200701 /* NotesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotesViewController.h; sourceTree = "<group>"; };
 		B0A2D79C1147210900200701 /* NotesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotesViewController.m; sourceTree = "<group>"; };
 		B0A2D79D1147210900200701 /* NotesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotesViewController.xib; sourceTree = "<group>"; };
@@ -392,6 +392,8 @@
 		E211D9F11512323700C01E64 /* FileDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileDownloader.h; sourceTree = "<group>"; };
 		E211D9F21512323700C01E64 /* FileDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileDownloader.m; sourceTree = "<group>"; };
 		E21E19F014DD84D900F24C75 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
+		E2208E351632066F0018019C /* MainWindow-iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "MainWindow-iPhone.xib"; sourceTree = "<group>"; };
+		E2208E3B163263DA0018019C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		E224453D150275F70053FD0C /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
 		E22CF3F315161E3A00531B63 /* ImageImportInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageImportInfo.h; sourceTree = "<group>"; };
 		E22CF3F415161E3A00531B63 /* ImageImportInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageImportInfo.m; sourceTree = "<group>"; };
@@ -682,6 +684,7 @@
 				B092F987116655AD0011E423 /* Icon.png */,
 				E29EF58D158D9B9600E8543E /* Icon-72.png */,
 				B09707E61236CC6100B29B2A /* Default.png */,
+				E2208E3B163263DA0018019C /* Default-568h@2x.png */,
 				E21E19F014DD84D900F24C75 /* Default-Portrait~ipad.png */,
 				B08E7EA71153D8EF001E10C6 /* icon_gear.png */,
 				B08E7EA21153D7FF001E10C6 /* icon_summary.png */,
@@ -787,8 +790,8 @@
 				B0E3C3E4118540CE00F88812 /* Summary */,
 				B07D3E99115013BE00F3DDAE /* MainViewController.h */,
 				B07D3E9A115013BE00F3DDAE /* MainViewController.m */,
-				B0A2D79A1147210900200701 /* MainWindow.xib */,
 				E27359B314D4F6F9000E9579 /* MainWindow-iPad.xib */,
+				E2208E351632066F0018019C /* MainWindow-iPhone.xib */,
 				B0E3C3EB1185414C00F88812 /* NumberPickerModel.h */,
 				B0E3C3EC1185414C00F88812 /* NumberPickerModel.m */,
 				B0A2D79E1147210900200701 /* PickerModel.h */,
@@ -1095,7 +1098,6 @@
 				B0A2D7C51147210900200701 /* LogbookEntryTableCell.xib in Resources */,
 				B00B544511F34AFD00EB72D6 /* LogbookEntryViewController.xib in Resources */,
 				B00B544611F34B0D00EB72D6 /* LogbookListViewController.xib in Resources */,
-				B00B543411F3486C00EB72D6 /* MainWindow.xib in Resources */,
 				B00B543D11F34A5B00EB72D6 /* NotesViewController.xib in Resources */,
 				B00B544011F34A9D00EB72D6 /* RigComponentViewController.xib in Resources */,
 				B00B544111F34AAC00EB72D6 /* RigReminderViewController.xib in Resources */,
@@ -1126,6 +1128,8 @@
 				E29EF58E158D9B9600E8543E /* Icon-72.png in Resources */,
 				E2E407CB15AE760000416DBB /* next.png in Resources */,
 				E2E407CC15AE760000416DBB /* previous.png in Resources */,
+				E2208E361632066F0018019C /* MainWindow-iPhone.xib in Resources */,
+				E2208E3C163263DA0018019C /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1279,7 +1283,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2/**";
 				INFOPLIST_FILE = "skydiveapp_4_iphone-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = "-lxml2";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1302,7 +1306,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2/**";
 				INFOPLIST_FILE = "skydiveapp_4_iphone-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = "-lxml2";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1346,7 +1350,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2/**";
 				INFOPLIST_FILE = "skydiveapp_4_iphone-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = "-lxml2";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1437,7 +1441,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2/**";
 				INFOPLIST_FILE = "skydiveapp_4_iphone-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = "-lxml2";
 				PROVISIONING_PROFILE = "CD613709-55B9-4CB7-A26F-85654CA3D64E";
 				"PROVISIONING_PROFILE[sdk=*]" = "CD613709-55B9-4CB7-A26F-85654CA3D64E";

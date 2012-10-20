@@ -36,7 +36,7 @@ static NSInteger GearTabIndex = 2;
     [self registerDropBoxSession];
 	
 	// add the tab bar controller's current view
-	[window addSubview:tabBarController.view];
+    [window setRootViewController:tabBarController];
 	
 	// set more nav bar style
 	tabBarController.moreNavigationController.navigationBar.barStyle = UIBarStyleBlack;
