@@ -294,17 +294,10 @@ static NSInteger CopyLastIndex = 1;
 - (UIPageViewController *)createPageViewController
 {
     // create/init current page controller
-    UIPageViewController *controller = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStylePageCurl navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
+    UIPageViewController *controller = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
     controller.hidesBottomBarWhenPushed = YES;
     controller.dataSource = self;
     controller.delegate = self;
-    
-    // set self as gesture delegate to intercept/cancel "tap" gesture
-    NSArray *gestures = controller.gestureRecognizers;
-    for (UIGestureRecognizer *gesture in gestures)
-    {
-        gesture.delegate = self;
-    }
     
     return controller;
 }
@@ -343,20 +336,6 @@ static NSInteger CopyLastIndex = 1;
 		[self signLogbook];
 	else if (buttonIndex == CopyLastIndex)
 		[self copyLast];
-}
-
-#pragma mark -
-#pragma mark UIGestureRecognizerDelegate
-
--(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
-{
-    // intercept tap gesture of UIPageViewController
-    // since it interferes with the toolbar buttons
-    if ([gestureRecognizer isKindOfClass:[UITapGestureRecognizer class]])
-    {
-        return NO;
-    }
-    return YES;
 }
 
 #pragma mark -
@@ -404,7 +383,9 @@ static NSInteger CopyLastIndex = 1;
 - (UIPageViewControllerSpineLocation)pageViewController:(UIPageViewController *)pageViewController spineLocationForInterfaceOrientation:(UIInterfaceOrientation)orientation
 {
     // not really used
-    return UIPageViewControllerSpineLocationMid;
+    //if (pageViewController.childViewControllers.count > 0)
+        return UIPageViewControllerSpineLocationMin;
+    //return UIPageViewControllerSpineLocationNone;
 }
 
 #pragma mark -

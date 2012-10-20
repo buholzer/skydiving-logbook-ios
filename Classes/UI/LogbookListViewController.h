@@ -14,8 +14,7 @@
                                                             LogEntryViewControllerDelegate,
                                                             UIPageViewControllerDataSource,
                                                             UIPageViewControllerDelegate,
-															UIActionSheetDelegate,
-                                                            UIGestureRecognizerDelegate>
+															UIActionSheetDelegate>
 {
 	NSInteger currentOffset;
 	BOOL showLoadMore;
