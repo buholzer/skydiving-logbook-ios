@@ -28,10 +28,6 @@ static NSInteger GearTabIndex = 2;
 {
 	// Override point for customization after app launch 
     
-	// update startup task to import url
-	NSURL *importUrl = (NSURL *)[options valueForKey:UIApplicationLaunchOptionsURLKey];
-	[[StartupTask instance] setImportUrl:importUrl];
-    
     // register dropbox session
     [self registerDropBoxSession];
 	
@@ -55,12 +51,19 @@ static NSInteger GearTabIndex = 2;
         [[NSNotificationCenter defaultCenter] postNotificationName:DropBoxAuthenticationNotification object:nil];
 		return YES;
 	}
+    else
+    {
+        // update startup task to import url
+        [[StartupTask instance] setImportUrl:url];
+    }
 	
 	return NO;
 }
 
-- (void)applicationWillTerminate:(UIApplication *)application
+- (void)applicationDidBecomeActive:(UIApplication *)application
 {
+    // start startup task
+    [[StartupTask instance] startup];
 }
 
 - (UIWindow *)mainWindow

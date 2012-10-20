@@ -50,6 +50,15 @@ static NSInteger CopyLastIndex = 1;
 	// add more button
 	UIBarButtonItem *moreButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"MoreButton", @"") style:UIBarButtonItemStylePlain target:self action:@selector(showMoreActions)];
 	self.navigationItem.leftBarButtonItem = moreButton;
+    
+    // add startup delegate
+    [[StartupTask instance] addDelegate:self];
+}
+
+- (void)viewDidUnload
+{
+    // remove startup delegate
+    [[StartupTask instance] removeDelegate:self];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -58,8 +67,10 @@ static NSInteger CopyLastIndex = 1;
 	// reset data
 	[self resetData];
 	
-	// run startup task
-	[[StartupTask instance] startup:self];
+	// if startup task completed, load data
+    if ([[StartupTask instance] isCompleted])
+        [self loadDataPage];
+    // otherwise wait until startup completed
 }
 
 - (void)resetData
@@ -383,9 +394,7 @@ static NSInteger CopyLastIndex = 1;
 - (UIPageViewControllerSpineLocation)pageViewController:(UIPageViewController *)pageViewController spineLocationForInterfaceOrientation:(UIInterfaceOrientation)orientation
 {
     // not really used
-    //if (pageViewController.childViewControllers.count > 0)
-        return UIPageViewControllerSpineLocationMin;
-    //return UIPageViewControllerSpineLocationNone;
+    return UIPageViewControllerSpineLocationMin;
 }
 
 #pragma mark -

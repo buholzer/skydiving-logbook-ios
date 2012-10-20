@@ -13,11 +13,6 @@
 #import "DatabaseImporter.h"
 #import "UIUtility.h"
 
-@interface StartupTask(Private)
-- (void)updateReminders:(RigRepository *)repository;
-- (void)importData;
-@end
-
 @implementation StartupTask
 
 static StartupTask *instance = NULL;
@@ -33,19 +28,51 @@ static StartupTask *instance = NULL;
 	return instance;
 }
 
+- (id)init
+{
+    if (self = [super init])
+	{
+        needsToRun = TRUE;
+        running = FALSE;
+	}
+	
+	return self;
+}
+
 - (void)setImportUrl:(NSURL *)url
 {
 	importUrl = url;
+    needsToRun = TRUE;
 }
 
-- (void)startup:(id<StartupTaskDelegate>)delegate
+- (void)addDelegate:(id<StartupTaskDelegate>)delegate
+{
+    if (!delegates)
+    {
+        delegates = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+    [delegates addObject:delegate];
+}
+
+- (void)removeDelegate:(id<StartupTaskDelegate>)delegate
+{
+    if (!delegates)
+        return;
+    [delegates removeObject:delegate];
+}
+
+- (BOOL)isCompleted
+{
+    return !running && !needsToRun;
+}
+
+- (void)startup
 {	
-	// don't run again if already running or completed
-	if (running || completed)
+	// don't run if running or doesn't need to
+	if (running || !needsToRun)
 	{
-		// notify delegate, exit
-		if (delegate)
-			[delegate startupCompleted];
+		// notify delegates, exit
+        [self notifyDelegates];
 		return;
 	}
 	// set running
@@ -65,7 +92,7 @@ static StartupTask *instance = NULL;
 	[progressHud show:YES];
 	
 	// execute startup tasks in background thread
-	[self performSelectorInBackground:@selector(doStartup:) withObject:delegate];
+	[self performSelectorInBackground:@selector(doStartup) withObject:nil];
 }
 
 - (void)updateProgressText:(NSString *)title detail:(NSString *)detail
@@ -78,7 +105,7 @@ static StartupTask *instance = NULL;
 	progressHud.detailsLabelText = detail;
 }
 
-- (void)doStartup:(id<StartupTaskDelegate>)delegate
+- (void)doStartup
 {
     @autoreleasepool
     {
@@ -94,7 +121,7 @@ static StartupTask *instance = NULL;
 	[self performSelectorOnMainThread:@selector(doUpdateReminders) withObject:nil waitUntilDone:YES];
 	
 	// notify delegate on main thread, wait for finish
-	[self performSelectorOnMainThread:@selector(doCompleteStartup:) withObject:delegate waitUntilDone:NO];
+	[self performSelectorOnMainThread:@selector(doCompleteStartup) withObject:nil waitUntilDone:NO];
 }
 
 - (void)importData
@@ -123,11 +150,11 @@ static StartupTask *instance = NULL;
     [[NotificationManager instance] updateRigReminderBadges];
 }
 
-- (void)doCompleteStartup:(id<StartupTaskDelegate>)delegate
+- (void)doCompleteStartup
 {
 	// set task flags
-	completed = YES;
-	running = NO;
+    needsToRun = FALSE;
+	running = FALSE;
 
 	// cleanup hud
 	[progressHud hide:YES];
@@ -137,11 +164,19 @@ static StartupTask *instance = NULL;
 	// clean up import url
 	importUrl = nil;
 	
-	// notify delegate
-	if (delegate)
-	{
-		[delegate startupCompleted];
-	}
+	// notify delegates
+    [self notifyDelegates];
+}
+
+- (void)notifyDelegates
+{
+    if (!delegates)
+        return;
+    
+    for (id<StartupTaskDelegate> delegate in delegates)
+    {
+        [delegate startupCompleted];
+    }
 }
 
 #pragma mark -

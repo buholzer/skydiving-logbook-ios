@@ -20,15 +20,21 @@
 
 	// startup data
 	NSURL *importUrl;
+    
+    // delegates
+    NSMutableArray *delegates;
 	
 	BOOL running;
-	BOOL completed;
+    BOOL needsToRun;
 }
 
 + (StartupTask *)instance;
 
-- (void)startup:(id<StartupTaskDelegate>)delegate;
+- (void)startup;
+- (BOOL)isCompleted;
 - (void)setImportUrl:(NSURL *)importUrl;
+- (void)addDelegate:(id<StartupTaskDelegate>)delegate;
+- (void)removeDelegate:(id<StartupTaskDelegate>)delegate;
 - (void)updateProgressText:(NSString *)title detail:(NSString *)detail;
 
 @end
