@@ -13,17 +13,16 @@
 #import "LogEntry.h"
 #import "UIUtility.h"
 
+CGFloat const LogEntryCellHeight = 92;
+
 // constants
-static NSInteger MaxRows = 500;
-static NSInteger LoadMoreCellHeight = 54;
 static NSInteger SignIndex = 0;
 static NSInteger CopyLastIndex = 1;
 
 // private interface
 @interface LogbookListViewController(Private)
 - (void)addLogEntry;
-- (void)resetData;
-- (void)loadDataPage;
+- (void)loadData;
 - (void)showMoreActions;
 - (void)signLogbook;
 - (void)copyLast;
@@ -64,38 +63,17 @@ static NSInteger CopyLastIndex = 1;
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
-	// reset data
-	[self resetData];
 	
 	// if startup task completed, load data
     if ([[StartupTask instance] isCompleted])
-        [self loadDataPage];
+        [self loadData];
     // otherwise wait until startup completed
 }
 
-- (void)resetData
+- (void)loadData
 {
-	self.logEntries = nil;
-	currentOffset = 0;
-}
-
-- (void)loadDataPage
-{	
-	// create array if necessary
-	if (logEntries == nil)
-	{
-		self.logEntries = [NSMutableArray arrayWithCapacity:0];
-		currentOffset  = 0;
-	}
-	
 	// get data
-    LogEntryRepository *repository = [[RepositoryManager instance] logEntryRepository];
-	NSArray *entries = [repository loadLogEntries:currentOffset maxRows:MaxRows];
-	currentOffset += [entries count];
-	showLoadMore = ([entries count] == MaxRows);
-	
-	// add to array
-	[logEntries addObjectsFromArray:entries];
+    self.logEntries = [[[RepositoryManager instance] logEntryRepository] loadLogEntries];
 
 	// reload table
 	[self.tableView reloadData];
@@ -336,7 +314,7 @@ static NSInteger CopyLastIndex = 1;
 
 - (void)startupCompleted
 {
-	[self loadDataPage];
+	[self loadData];
 }
 
 #pragma mark -
@@ -408,73 +386,38 @@ static NSInteger CopyLastIndex = 1;
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	if (showLoadMore)
-		return [logEntries count] + 1;
-	else
-		return [logEntries count];
+    return [logEntries count];
 }
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	if (showLoadMore && [logEntries count] == indexPath.row)
-	{
-		// get cell
-		static NSString *LoadMoreCellId = @"LoadMoreTableCell";
-		UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:LoadMoreCellId];
-		if (cell == nil)
-		{
-			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:LoadMoreCellId];
-			cell.textLabel.text = NSLocalizedString(@"LoadMore", @"");
-			cell.textLabel.textColor = [UIColor blueColor];
-		}
-		return cell;
-	}
-	else
-	{
-		// get cell
-		static NSString *EntryCellId = @"LogbookEntryTableCell";
-		UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:EntryCellId];
-		if (cell == nil)
-		{
-			NSArray *nibs = [[NSBundle mainBundle] loadNibNamed:EntryCellId owner:self options:nil];
-			cell = [nibs objectAtIndex:0];
-		}
+	// get cell
+    static NSString *EntryCellId = @"LogbookEntryTableCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:EntryCellId];
+    if (cell == nil)
+    {
+        NSArray *nibs = [[NSBundle mainBundle] loadNibNamed:EntryCellId owner:self options:nil];
+        cell = [nibs objectAtIndex:0];
+    }
 	
-		// get entry, init cell
-		LogEntry *logEntry = [logEntries objectAtIndex:indexPath.row];
-		[UIUtility initCellWithLogEntry:cell logEntry:logEntry];
+    // get entry, init cell
+    LogEntry *logEntry = [logEntries objectAtIndex:indexPath.row];
+    [UIUtility initCellWithLogEntry:cell logEntry:logEntry];
 
-		return cell;
-	}
+    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	if (showLoadMore && [logEntries count] == indexPath.row)
-	{
-		[self loadDataPage];
-	}
-	else
-	{
-		// get log entry, show controller
-		LogEntry *logEntry = [logEntries objectAtIndex:indexPath.row];
-		[self showLogEntryViewController:logEntry isNew:NO];
-	}
+    // get log entry, show controller
+    LogEntry *logEntry = [logEntries objectAtIndex:indexPath.row];
+    [self showLogEntryViewController:logEntry isNew:NO];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	if (showLoadMore && [logEntries count] == indexPath.row)
-	{
-		return LoadMoreCellHeight;
-	}
-	else
-	{
-		// get cell
-		UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
-		return [UIUtility logEntryCellHeight:cell];
-	}
+    return LogEntryCellHeight;
 }
 
 @end

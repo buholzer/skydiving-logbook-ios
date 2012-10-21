@@ -32,5 +32,4 @@
 +(UIColor *)colorForDueStatus:(enum DueStatus)status;
 +(UIImage *)imageForDueStatus:(enum DueStatus)status;
 +(void)initCellWithLogEntry:(UITableViewCell *)cell logEntry:(LogEntry *)logEntry;
-+(CGFloat)logEntryCellHeight:(UITableViewCell *)cell;
 @end

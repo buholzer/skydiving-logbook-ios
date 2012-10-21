@@ -20,7 +20,7 @@ extern NSString * const LogEntryDiagramImageType;
 }
 
 - (id)initWithContext:(NSManagedObjectContext *)ctx;
-- (NSArray *)loadLogEntries:(NSInteger)startIndex maxRows:(NSInteger)maxRows;
+- (NSArray *)loadLogEntries;
 - (LogEntry *)getPreviousLogEntry:(NSInteger)jumpNumber;
 - (LogEntry *)getNextLogEntry:(NSInteger)jumpNumber;
 - (NSArray *)findLogEntries:(LogEntrySearchCriteria *)searchCriteria;

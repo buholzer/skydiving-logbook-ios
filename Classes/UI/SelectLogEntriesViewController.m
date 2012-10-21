@@ -7,6 +7,7 @@
 //
 
 #import "SelectLogEntriesViewController.h"
+#import "LogbookListViewController.h"
 #import "SignatureViewController.h"
 #import "LogEntry.h"
 #import "UIUtility.h"
@@ -126,9 +127,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	// get cell
-	UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
-	return [UIUtility logEntryCellHeight:cell];
+    return LogEntryCellHeight;
 }
 
 @end

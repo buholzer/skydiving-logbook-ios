@@ -19,11 +19,7 @@ static NSNumberFormatter *percentFormat = nil;
 static UIColor *pastDueColor = nil;
 static UIImage *skullImage = nil;
 
-// LogEntryTableCell constants
-static CGFloat MinimumCellHeight = 66;
-static CGFloat MaximumNotesHeight = 54;
-static CGFloat SignatureImageHeight = 22;
-// view tags (these match with tags in xib file)
+// LogEntryTableCell view tags (these match with tags in xib file)
 static NSInteger JumpNumberFieldTag = 10;
 static NSInteger DateFieldTag = 20;
 static NSInteger LocationFieldTag = 30;
@@ -32,12 +28,7 @@ static NSInteger JumpTypeFieldTag = 50;
 static NSInteger NotesFieldTag = 60;
 static NSInteger SignatureFieldTag = 70;
 
-@interface UIUtility(Private)
-+ (void)setFieldText:(UITableViewCell *)cell tag:(NSInteger)tag text:(NSString *)text;
-@end
-
 @implementation UIUtility
-
 
 //////////////////////////////////////////////
 /// Is iPad
@@ -194,8 +185,6 @@ static NSInteger SignatureFieldTag = 70;
 	return nil;
 }
 
-
-
 //////////////////////////////////////////////
 /// Log Entry Cell Methods
 /////////////////////////////////////////////
@@ -216,38 +205,12 @@ static NSInteger SignatureFieldTag = 70;
     // set signature
     UIImageView *imageView = (UIImageView *)[cell viewWithTag:SignatureFieldTag];
     imageView.hidden = !logEntry.Signature;
-	
-	// set notes height based on notes
-	UILabel *notesField = (UILabel *)[cell viewWithTag:NotesFieldTag];
-	CGRect notesFrame = notesField.frame;
-	CGSize constraint = CGSizeMake(notesFrame.size.width, FLT_MAX);
-	CGSize size = [notesField.text sizeWithFont:notesField.font constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
-	CGRect newBounds = CGRectMake(
-								  notesFrame.origin.x,
-								  notesFrame.origin.y,
-								  notesFrame.size.width,
-								  MIN(size.height, MaximumNotesHeight));
-	notesField.frame = newBounds;
 }
 
 + (void)setFieldText:(UITableViewCell *)cell tag:(NSInteger)tag text:(NSString *)text
 {
 	UILabel *label = (UILabel *)[cell viewWithTag:tag];
 	label.text = text;
-}
-
-+ (CGFloat)logEntryCellHeight:(UITableViewCell *)cell
-{
-	// get notes height
-	UILabel *notesField = (UILabel *)[cell viewWithTag:NotesFieldTag];
-    CGFloat notesHeight = notesField.bounds.size.height;
-    
-    // get signature image height
-    UIImageView *sigImageView = (UIImageView *)[cell viewWithTag:SignatureFieldTag];
-    CGFloat sigImageHeight = sigImageView.hidden ? 0 : SignatureImageHeight;
-	
-	// height + notesfield height
-	return MinimumCellHeight + MAX(notesHeight, sigImageHeight);
 }
 
 @end

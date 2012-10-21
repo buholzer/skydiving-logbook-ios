@@ -10,19 +10,18 @@
 #import "StartupTask.h"
 #import "LogbookEntryViewController.h"
 
+extern CGFloat const LogEntryCellHeight;
+
 @interface LogbookListViewController : UITableViewController<StartupTaskDelegate,
                                                             LogEntryViewControllerDelegate,
                                                             UIPageViewControllerDataSource,
                                                             UIPageViewControllerDelegate,
 															UIActionSheetDelegate>
 {
-	NSInteger currentOffset;
-	BOOL showLoadMore;
-    
     UIPageViewController *currentPageController;
     LogbookEntryViewController *currentLogEntryController;
 }
 
-@property (strong) NSMutableArray *logEntries;
+@property (strong) NSArray *logEntries;
 
 @end

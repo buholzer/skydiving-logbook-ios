@@ -30,16 +30,15 @@ NSString * const LogEntryDiagramImageType = @"LogEntryDiagramImageType";
 	return [super initWithContext:ctx entityName:@"LogEntry" sortAttribute:@"JumpNumber"];
 }
 
-- (NSArray *)loadLogEntries:(NSInteger)startIndex maxRows:(NSInteger)maxRows
+- (NSArray *)loadLogEntries
 {
 	// create fetch request
 	NSFetchRequest *request = [[NSFetchRequest alloc] init];
 	NSEntityDescription *entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:context];
 	[request setEntity:entity];
 	
-	// set paging limits
-	[request setFetchOffset:startIndex];
-	[request setFetchLimit:maxRows];
+    // set batch size
+    [request setFetchBatchSize:100];
 	
 	// set sort
 	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:sortAttribute ascending:NO];
@@ -193,7 +192,7 @@ NSString * const LogEntryDiagramImageType = @"LogEntryDiagramImageType";
 - (LogEntry *)createFromLast
 {
 	// get last log entry list
-	NSArray *lastList = [self loadLogEntries:0 maxRows:1];
+	NSArray *lastList = [self loadLogEntries];
 	
 	// if none, use defaults
 	if ([lastList count] <= 0)
