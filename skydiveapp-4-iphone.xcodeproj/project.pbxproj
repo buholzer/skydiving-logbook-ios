@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1D3623260D0F684500981E51 /* SkydiveAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* SkydiveAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		7EAA17D3163CAD8700D9CC1A /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EAA17D2163CAD8700D9CC1A /* DropboxSDK.framework */; };
+		7EAA17D6163CAE4900D9CC1A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EAA17D5163CAE4900D9CC1A /* QuartzCore.framework */; };
 		B000FFCB124DB1C900506000 /* StartupTask.m in Sources */ = {isa = PBXBuildFile; fileRef = B000FFCA124DB1C900506000 /* StartupTask.m */; };
 		B00B543211F3485200EB72D6 /* SummaryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0A2D7B41147210900200701 /* SummaryViewController.xib */; };
 		B00B543511F3491C00EB72D6 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0A2D7B11147210900200701 /* SettingsViewController.xib */; };
@@ -133,7 +135,6 @@
 		E21E19F114DD84D900F24C75 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = E21E19F014DD84D900F24C75 /* Default-Portrait~ipad.png */; };
 		E2208E361632066F0018019C /* MainWindow-iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2208E351632066F0018019C /* MainWindow-iPhone.xib */; };
 		E2208E3C163263DA0018019C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2208E3B163263DA0018019C /* Default-568h@2x.png */; };
-		E224453E150275F70053FD0C /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E224453D150275F70053FD0C /* DropboxSDK.framework */; };
 		E22CF3F515161E3A00531B63 /* ImageImportInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E22CF3F415161E3A00531B63 /* ImageImportInfo.m */; };
 		E242D6B8142ED7890021EFB6 /* NSData_MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = E242D6B7142ED7890021EFB6 /* NSData_MD5.m */; };
 		E26353A914DD8B0000C5C7BE /* SkydiveType.m in Sources */ = {isa = PBXBuildFile; fileRef = E26353A814DD8B0000C5C7BE /* SkydiveType.m */; };
@@ -191,6 +192,8 @@
 		288765070DF74369002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28A0AB4B0D9B1048005BE974 /* skydiveapp_4_iphone_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = skydiveapp_4_iphone_Prefix.pch; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7EAA17D2163CAD8700D9CC1A /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
+		7EAA17D5163CAE4900D9CC1A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		8D1107310486CEB800E47090 /* skydiveapp_4_iphone-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "skydiveapp_4_iphone-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		B000FFC9124DB1C900506000 /* StartupTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartupTask.h; sourceTree = "<group>"; };
 		B000FFCA124DB1C900506000 /* StartupTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartupTask.m; sourceTree = "<group>"; };
@@ -394,7 +397,6 @@
 		E21E19F014DD84D900F24C75 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
 		E2208E351632066F0018019C /* MainWindow-iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "MainWindow-iPhone.xib"; sourceTree = "<group>"; };
 		E2208E3B163263DA0018019C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
-		E224453D150275F70053FD0C /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
 		E22CF3F315161E3A00531B63 /* ImageImportInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageImportInfo.h; sourceTree = "<group>"; };
 		E22CF3F415161E3A00531B63 /* ImageImportInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageImportInfo.m; sourceTree = "<group>"; };
 		E242D6B6142ED7890021EFB6 /* NSData_MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSData_MD5.h; sourceTree = "<group>"; };
@@ -488,14 +490,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EAA17D6163CAE4900D9CC1A /* QuartzCore.framework in Frameworks */,
+				B08A8D3C12B028C3007116FD /* CoreGraphics.framework in Frameworks */,
 				B0922B4013870CD300A7F582 /* Security.framework in Frameworks */,
 				B080777D122EDBAB00B69935 /* libxml2.dylib in Frameworks */,
 				B08A8D3A12B028B5007116FD /* Foundation.framework in Frameworks */,
 				B08A8D3B12B028BD007116FD /* UIKit.framework in Frameworks */,
-				B08A8D3C12B028C3007116FD /* CoreGraphics.framework in Frameworks */,
 				B08A8D3D12B028C9007116FD /* CoreData.framework in Frameworks */,
 				B08A8D3E12B028CF007116FD /* MessageUI.framework in Frameworks */,
-				E224453E150275F70053FD0C /* DropboxSDK.framework in Frameworks */,
+				7EAA17D3163CAD8700D9CC1A /* DropboxSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,8 +569,9 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7EAA17D5163CAE4900D9CC1A /* QuartzCore.framework */,
+				7EAA17D2163CAD8700D9CC1A /* DropboxSDK.framework */,
 				B0922B3F13870CD300A7F582 /* Security.framework */,
-				E224453D150275F70053FD0C /* DropboxSDK.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765070DF74369002DB57D /* CoreGraphics.framework */,

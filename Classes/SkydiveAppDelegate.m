@@ -15,7 +15,7 @@
 
 static NSInteger GearTabIndex = 2;
 
-@interface SkydiveAppDelegate(Private)
+@interface SkydiveAppDelegate(Private) <DBSessionDelegate, DBNetworkRequestDelegate>
 - (void)registerDropBoxSession;
 @end
 
@@ -81,11 +81,36 @@ static NSInteger GearTabIndex = 2;
 - (void)registerDropBoxSession
 {
     // Set these variables before launching the app
-    NSString* consumerKey = @"fcumyczh0enwngw";
-	NSString* consumerSecret = @"qth1zfxdfqwr3tw";
+    NSString* consumerKey = @"5ilrzrio0u324cq";
+	NSString* consumerSecret = @"vngzqzterkjmh63";
 	
-    DBSession* session = [[DBSession alloc] initWithAppKey:consumerKey appSecret:consumerSecret root:kDBRootDropbox];
+	DBSession* session = [[DBSession alloc] initWithAppKey:consumerKey appSecret:consumerSecret root:kDBRootAppFolder];
+	session.delegate = self; // DBSessionDelegate methods allow you to handle re-authenticating
 	[DBSession setSharedSession:session];
+	
+	[DBRequest setNetworkRequestDelegate:self];
+    
+    if ([[DBSession sharedSession] isLinked]) {
+        NSLog(@"Dropbox session linked.");
+    } else {
+        NSLog(@"Dropbox session not linked.");
+    }
+    
+}
+
+- (void)sessionDidReceiveAuthorizationFailure:(DBSession *)session userId:(NSString *)userId {
+    
+    [[[UIAlertView alloc]
+      initWithTitle:@"Dropbox" message:@"Authorization failure, reauthorize."
+      delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+}
+
+- (void)networkRequestStarted {
+    NSLog(@"Dropbox network request started.");
+}
+
+- (void)networkRequestStopped {
+    NSLog(@"Dropbox network request stopped.");
 }
 
 @end

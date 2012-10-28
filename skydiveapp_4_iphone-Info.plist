@@ -53,9 +53,11 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>db-fcumyczh0enwngw</string>
+				<string>db-5ilrzrio0u324cq</string>
 			</array>
 		</dict>
 	</array>
@@ -68,10 +70,6 @@
 	<key>NSMainNibFile~ipad</key>
 	<string>MainWindow-iPad</string>
 	<key>UISupportedInterfaceOrientations</key>
-	<array/>
-	<key>UTExportedTypeDeclarations</key>
-	<array/>
-	<key>UTImportedTypeDeclarations</key>
 	<array/>
 </dict>
 </plist>

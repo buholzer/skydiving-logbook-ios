@@ -101,7 +101,7 @@ NSString * const DropBoxAuthenticationNotification = @"DropBoxAuthenticationNoti
 {
     if (![[DBSession sharedSession] isLinked])
     {
-        [[DBSession sharedSession] link];
+        [[DBSession sharedSession] linkFromController:self];
     }
     else
     {
